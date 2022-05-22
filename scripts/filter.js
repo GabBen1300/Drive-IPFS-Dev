@@ -108,7 +108,7 @@ async function filter(){
     
     const tipo = document.getElementById("filterSelect").value;
     const date = document.getElementById("dateFilter").value;
-    const nome = document.getElementById("nameFilter").value;
+    const nome = document.getElementById("nameFilter").value.toLowerCase();
 
     query.equalTo("address", user.get("ethAddress"));
 
@@ -145,7 +145,7 @@ async function filter(){
 
             // TUTTI I FILTRI SELEZIONATI
             if(dateVerify && tipoVerify && nomeVerify){
-                if(when === now && object.get("fileType") === tipo && object.get("ImgName").includes(nome))
+                if(when === now && object.get("fileType") === tipo && object.get("ImgName").toLowerCase().includes(nome))
                     verify = true;
             }
             // SOLO DATA E TIPO SELEZIONATI
@@ -155,17 +155,17 @@ async function filter(){
             }
             // SOLO DATA E NOME SELEZIONATI
             else if(dateVerify && nomeVerify){
-                if(when === now && object.get("ImgName").includes(nome))
+                if(when === now && object.get("ImgName").toLowerCase().includes(nome))
                     verify = true;
             }
             // SOLO TIPO E NOME SELEZIONATI
             else if(tipoVerify && nomeVerify){
-                if(object.get("fileType") === tipo && object.get("ImgName").includes(nome))
+                if(object.get("fileType") === tipo && object.get("ImgName").toLowerCase().includes(nome))
                     verify = true;
             }
             // UN SOLO FILTRO SELEZIONATO
             else if(dateVerify || tipoVerify || nomeVerify){
-                if(object.get("fileType") === tipo || when === now || object.get("ImgName").includes(nome))
+                if(object.get("fileType") === tipo || when === now || object.get("ImgName").toLowerCase().includes(nome))
                     verify = true;
             }
 

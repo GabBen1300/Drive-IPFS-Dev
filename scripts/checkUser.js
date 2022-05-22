@@ -164,7 +164,11 @@ function changeValue(id, value) { document.getElementById(id).innerHTML = value;
     document.getElementById("isNotSigned").style.display = "none";
 
     if(user){
-        if(isMobile) hasUploadedFilesMobile(user);
+        if(isMobile)
+        {
+            document.getElementById("logged-in-user").style.display = "none";
+            hasUploadedFilesMobile(user);
+        }
         else hasUploadedFiles(user);
 
         showLoggedContent(user);
