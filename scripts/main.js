@@ -15,7 +15,7 @@ async function getProfileData(user){
 
     query.equalTo("address", user.get("ethAddress"));
 
-    const results = await query.find();
+    const results = await query.descending("updatedAt").find();
         
     
     const object = results[0];

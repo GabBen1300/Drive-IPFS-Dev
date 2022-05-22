@@ -81,7 +81,7 @@ async function check(){
 
     query.equalTo("address", user.get("ethAddress"));
 
-    const results = await query.find();
+    const results = await query.descending("updatedAt").find();
         //alert(results.length);
 
     if(results.length === 0) {
@@ -107,7 +107,7 @@ async function check(){
 
         query.equalTo("address", user.get("ethAddress"));
 
-        const results = await query.find();
+        const results = await query.descending("updatedAt").find();
             
         const object = results[0];
         var ris = "";

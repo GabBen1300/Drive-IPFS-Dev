@@ -112,7 +112,7 @@ async function filter(){
 
     query.equalTo("address", user.get("ethAddress"));
 
-    const results = await query.find();
+    const results = await query.descending("updatedAt").find();
 
     if(results.length !== 0) {
         document.getElementById("IPFS_content").style.display = "block";
