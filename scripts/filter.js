@@ -222,7 +222,6 @@ function mostraFiltri() {
     {
         document.getElementById("mostrFiltriId").innerHTML="Mostra Filtri";
         document.getElementById("filterDiv").style.display = "none";
-        document.getElementById("filterDiv").style.display = "block";
         changeValue("filterDiv", "");
     }
 }
