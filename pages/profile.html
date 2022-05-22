@@ -15,23 +15,25 @@
   <!-- Bootstrap core CSS -->
   <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="../css/main.css" rel="stylesheet">
+  <link media="screen" href="../css/particles.css" rel="stylesheet">
 </head>
 
 <body>
+  <!-- particles.js container -->
+  <div id="particles-js"></div>
   <main class="container">
-
-    <div class="bg-light p-4 rounded">
+    <div class="bg-light p-4 rounded" style="margin-top: 30px ;">
       <h2 id="title">Profilo</h2>
       <div class="text-center">
         <span id="profileData"></span>
       </div>
 
       <!-- Aggiorna dati-->
-      <div>
+      <div class="col-2 mx-auto">
         <label class="form-label">Username</label>
         <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="Inserisci il nuovo username" id="username"
-            aria-label="Recipient's username" aria-describedby="button-addon2">
+          <input type="text" class="form-control" placeholder="Inserisci nuovo username" id="username" aria-label="Recipient's username"
+            aria-describedby="button-addon2">
           <button class="btn btn-outline-secondary" type="button" onclick="uploadUsername()">Aggiorna</button>
         </div>
 
@@ -39,8 +41,9 @@
         <div class="input-group">
           <input type="file" class="form-control" id="imageProfile" aria-describedby="inputGroupFileAddon04"
             aria-label="Upload">
-          <button class="btn btn-outline-secondary" type="button"  onclick="uploadImage()">Aggiorna</button>
+          <button class="btn btn-outline-secondary" type="button" onclick="uploadImage()">Aggiorna</button>
         </div>
+
       </div>
       <div class="col-2 mx-auto w-100">
         <label class="form-label" id="result"></label>
@@ -50,6 +53,8 @@
       <p id="session"></p>
   </main>
 
+  <script src="../scripts/particles.js"></script>
+  <script src="../scripts/app.js"></script>
   <script type="text/javascript" src="../scripts/init.js"></script>
   <script type="text/javascript" src="../scripts/profile.js"></script>
   <script type="text/javascript" src="../scripts/filter.js"></script>

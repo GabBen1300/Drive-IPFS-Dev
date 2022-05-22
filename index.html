@@ -11,35 +11,54 @@
   <script src="https://unpkg.com/moralis/dist/moralis.js"></script>
   <script
     src="https://github.com/WalletConnect/walletconnect-monorepo/releases/download/1.7.1/web3-provider.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
   <!-- Bootstrap core CSS -->
   <link href="./assets/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="./css/main.css" rel="stylesheet">
+  <link rel="stylesheet" media="screen" href="./css/particles.css">
+</head>
 </head>
 
 <body>
-  <div id="particles-js">
-    <main class="container">
+  <!-- particles.js container -->
+  <div id="particles-js"></div>
+  <main class="container">
+
+    <div class="shadow-lg p-5 mb-5 bg-white rounded" style="margin-top: 30px;" id="white-container">
+
       <div class="bg-light p-3 rounded" id="top-bar">
         <div class="row">
           <div class="col-sm-4">
             <h1 id="title" class="display-4" style="margin-bottom: 10px;">IPFS Drive</h1>
             <p id="logged-in-user"></p>
           </div>
-          <div class="col-sm-4"></div>
-          <div class="col-sm-2">
-            <div class="row">
-              <td><button type="button" class="btn btn-danger out-btn" id="logout_button">Logout</button></td>
-              <td><button id="profile_button" onclick="location.href='pages/profile.html'" type="button"
-                  class="btn btn-info prof-btn">Profilo</button>
-              </td>
-            </div>
-          </div>
-          <div class="col-sm-2">
-            <div class="text-center" id="profile">
+          <div class="col-sm-3"></div>
+          <div class="col-sm-3">
+            <div style="margin-top: 10px;" class="text-center" id="profile">
               <span id="profileData"></span>
             </div>
           </div>
+          <div class="col-sm-2">
+            <div class="row">
+              <td ><button type="button" class="btn btn-danger out-btn" id="logout_button"> <svg
+                    xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                    class="bi bi-box-arrow-left" viewBox="0 0 20 19">
+                    <path fill-rule="evenodd"
+                      d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0v2z" />
+                    <path fill-rule="evenodd"
+                      d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z" />
+                  </svg>Logout</button></td>
+              <td><button  id="profile_button" onclick="location.href='pages/profile.html'" type="button"
+                  class="btn btn-primary prof-btn"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 576 512">
+                    <path
+                      d="M512 32H64C28.65 32 0 60.65 0 96v320c0 35.35 28.65 64 64 64h448c35.35 0 64-28.65 64-64V96C576 60.65 547.3 32 512 32zM176 128c35.35 0 64 28.65 64 64s-28.65 64-64 64s-64-28.65-64-64S140.7 128 176 128zM272 384h-192C71.16 384 64 376.8 64 368C64 323.8 99.82 288 144 288h64c44.18 0 80 35.82 80 80C288 376.8 280.8 384 272 384zM496 320h-128C359.2 320 352 312.8 352 304S359.2 288 368 288h128C504.8 288 512 295.2 512 304S504.8 320 496 320zM496 256h-128C359.2 256 352 248.8 352 240S359.2 224 368 224h128C504.8 224 512 231.2 512 240S504.8 256 496 256zM496 192h-128C359.2 192 352 184.8 352 176S359.2 160 368 160h128C504.8 160 512 167.2 512 176S504.8 192 496 192z" />
+                  </svg> Profilo</button>
+              </td>
+            </div>
+          </div>
+
         </div>
       </div>
 
@@ -48,7 +67,7 @@
           <div class="container">
             <div class="row d-flex justify-content-center align-items-center h-100">
               <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-                <div class="card shadow-2-strong" style="border-radius: 1rem; box-shadow: 10px 15px 5px lightgray;">
+                <div class="card shadow-2-strong" style="border-radius: 1rem">
                   <div class="card-body p-5 text-center">
 
                     <h3 class="mb-5">IPFS Drive</h3>
@@ -73,10 +92,6 @@
                     <a style="color: blue; text-decoration: underline; cursor: pointer;" id="reset_button"> Reset
                       password</a>
 
-
-                    <!-- <button style="width:90px; margin:2px;" id="verification-button" class="btn btn-info">Verifica</button>
-                  <button style="width:90px; margin:2px;" id="reset_button" class="btn btn-secondary">Reset</button> -->
-
                     <hr class="my-4">
                     <center>
                       <button class="btn  btn-block btn-success" style="width: 90%;" id="login_button"
@@ -96,6 +111,9 @@
         </section>
       </div>
 
+      <div id="isNotSigned">
+        <!-- Va lasciato, altrimenti tutto il css si sballa-->
+      </div>
 
 
       <!-- Contentenuto utente loggato -->
@@ -103,21 +121,27 @@
 
         <!-- YOUR DATA from IPFS -->
         <div id="IPFS_content">
-          <hr>
+          <br>
           <h4>I TUOI FILE DISTRIBUITI</h4>
-          <div class="input-group">
-            <select class="form-select w-50" id="filterSelect" aria-label="Example select with button addon">
-              <option value="reset" selected disabled>Filtra per tipo</option>
-              <option value="Immagine">Immagine</option>
-              <option value="Video">Video</option>
-              <option value="Audio">Audio</option>
-              <option value="Testo">Testo</option>
-              <option value="Zip">.Zip</option>
-              <option value="Altro">Altro</option>
-            </select>
-            <button class="btn btn-outline-secondary" type="button" onclick="filterAll()">Filtra</button>
-            <button class="btn btn-outline-secondary" type="button" onclick="location.reload()">Mostra tutto</button>
+          <div id="filterDiv">
+            <div class="input-group">
+              <select class="form-select w-20" id="filterSelect" aria-label="Filtre per tipo">
+                <option value="" selected>Filtra per tipo</option>
+                <option value="Immagine">Immagine</option>
+                <option value="Video">Video</option>
+                <option value="Audio">Audio</option>
+                <option value="Testo">Testo</option>
+                <option value="Zip">.Zip</option>
+                <option value="Altro">Altro</option>
+              </select>
+              <input class="form-control w-20" type="date" id="dateFilter" name="dateFilter" required>
+              <input class="form-control w-20" type="text" id="nameFilter" name="nameFilter"
+                placeholder="Filtra per nome" required>
+              <button class="btn btn-outline-secondary" type="button" onclick="filter()">Filtra</button>
+              <button class="btn btn-outline-secondary" type="button" onclick="location.reload()">Reset</button>
+            </div>
           </div>
+          <br>
           <p id="getRecords">
           </p>
         </div>
@@ -171,16 +195,14 @@
       </div>
       <p style="color: red;" id="error"></p>
       <p id="session"></p>
-    </main>
+    </div>
+  </main>
 
-    <p id="popup" style="color: white;"> </p>
+  <p id="popup" style="color: #9966cc;"> </p>
 
-    <!-- particles.js container -->
-  </div>
-  <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> <!-- stats.js lib -->
-  <script src="http://threejs.org/examples/js/libs/stats.min.js"></script>
-
-  <script type="text/javascript" src="./scripts/particles.js"></script>
+  <!-- scripts -->
+  <script src="./scripts/particles.js"></script>
+  <script src="./scripts/app.js"></script>
   <script type="text/javascript" src="./scripts/init.js"></script>
   <script type="text/javascript" src="./scripts/checkUser.js"></script>
   <script type="text/javascript" src="./scripts/login.js"></script>
@@ -190,6 +212,7 @@
   <script type="text/javascript" src="./scripts/filter.js"></script>
   <script type="text/javascript" src="./scripts/uploadFile.js"></script>
   <script src="./assets/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 
 </html>

@@ -107,9 +107,7 @@ uploadMetadata = async (imageHash) => {
     
     addLinkToDB(nameImg, description, fileType, imageHash, file.ipfs(), file.hash());
 
-    var res = "File caricato correttamente!";
-    // var res = "<br>IPFS: <a href = '" + file.ipfs() + "' target = '_blank'>link</a>";
-    // res += "<br>HASH: " + file.hash();
+    var res = "File caricato correttamente";
 
     changeValue("result", res);
 }
@@ -155,10 +153,11 @@ uploadAll = async () => {
 
     checkIfExist();
 
+    const loadGif = "<div class='spinner-border text-warning' role=status'><span class='visually-hidden'>Loading...</span></div>";
     const bar = "<div class='progress'><div id = 'bar' style = 'width: 0%;' class = 'progress-bar progress-bar-striped bg-warning' role='progressbar' aria-valuenow='75' aria-valuemin='0' aria-valuemax='100'></div></div>";
 
     if(fileInput.files.length != 0 && document.getElementById("fileType").value !== "Tipo" && document.getElementById("nameImg").value !== ""){
-
+        
         changeValue("result", bar);
         
         var timer = setInterval(function (){
@@ -173,14 +172,21 @@ uploadAll = async () => {
 
         try{
             const image = await uploadImage();
+        
             await uploadMetadata(image);
         } catch (error){
             console.log(error);
             window.clearInterval(timer);
         }
+            
+            
+            //window.clearInterval(timer);
+        
+
+        
 
     } else {
-        changeValue("result", "Devi compilare tutti i campi!");
+        changeValue("result", "Devi compilare tutti i campi!!");
     }
     
 }
@@ -196,7 +202,3 @@ document.getElementById("image").onchange = () => {
     console.log("filesize: " + filesize + " MB");
    //alert((filesize / 1000) + "MB");
 }
-
-
-
-

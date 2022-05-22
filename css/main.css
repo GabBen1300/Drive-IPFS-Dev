@@ -1,14 +1,10 @@
 .bd-placeholder-img {
-  font-size: 1.125rem;
-  text-anchor: middle;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  user-select: none;
-}
-
-a {
-  text-decoration: none;
-}
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
 
 /*Desktop Query*/
 @media only screen and (min-width: 768px) {
@@ -19,13 +15,13 @@ a {
   .out-btn {
     margin-bottom: 5px;
     margin-top: 20px;
-    width: 100%
+    width: 90%
   }
 
   .prof-btn {
     margin-bottom: 20px;
     margin-top: 5px;
-    width: 100%
+    width: 90%
   }
 }
 
@@ -37,13 +33,15 @@ a {
 
   .out-btn {
     width: 45%;
-    margin-right: 5%;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
     margin-bottom: 10px;
   }
 
   .prof-btn {
     width: 45%;
-    margin-left: 5%;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
     margin-bottom: 10px;
   }
 }
@@ -53,22 +51,22 @@ a {
   .col-2.mx-auto {
     width: 50%;
   }
+
+  .out-btn {
+    width: 45%;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+    margin-bottom: 10px;
+  }
+
+  .prof-btn {
+    width: 45%;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+    margin-bottom: 10px;
+  }
 }
 
-.flex {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
-  align-items: stretch;
-}
-
-.flexitems {
-  order: 1;
-  flex-grow: 1;
-  flex-shrink: 2;
-  align-self: auto;
-  flex-basis: auto;
+a {
+    text-decoration: none;
 }
