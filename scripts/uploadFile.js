@@ -152,8 +152,6 @@ uploadAll = async () => {
     const fileInput = document.getElementById("image");
 
     checkIfExist();
-
-    const loadGif = "<div class='spinner-border text-warning' role=status'><span class='visually-hidden'>Loading...</span></div>";
     const bar = "<div class='progress'><div id = 'bar' style = 'width: 0%;' class = 'progress-bar progress-bar-striped bg-warning' role='progressbar' aria-valuenow='75' aria-valuemin='0' aria-valuemax='100'></div></div>";
 
     if(fileInput.files.length != 0 && document.getElementById("fileType").value !== "Tipo" && document.getElementById("nameImg").value !== ""){
@@ -186,7 +184,7 @@ uploadAll = async () => {
         
 
     } else {
-        changeValue("result", "Devi compilare tutti i campi!!");
+        changeValue("result", "Devi compilare tutti i campi!");
     }
     
 }
